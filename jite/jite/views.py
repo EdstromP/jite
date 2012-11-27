@@ -36,4 +36,4 @@ class VisaAOListView(ListView):
 
     def get_queryset(self):
         #return Arbetsordrar.objects.filter(anstalld = self.request.user.id)
-        return Arbetsordrar.objects.filter(anstalld = self.request.user)
+        return Arbetsordrar.objects.filter(anstalld = self.request.user.userprofile.anstalld)

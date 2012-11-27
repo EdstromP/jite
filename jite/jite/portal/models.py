@@ -27,6 +27,7 @@ class Kunder(models.Model):
     personnummer = models.CharField(max_length=15, blank=True, null=True)
     adress = models.CharField(max_length=50)
     regdatum = models.DateField()
+    komptid = models.FloatField(verbose_name='Kompbank', default=0.0)
 
     def __unicode__(self):
         return self.namn
@@ -71,6 +72,7 @@ class Avtal(models.Model):
     status = models.CharField(max_length=50)
     veckodag = models.CharField(max_length=10, blank=True, null=True)
     kommentar = models.CharField(max_length=300, blank=True, null=True)
+    delegerad = models.BooleanField(default=False)
 
     def __unicode__(self):
         return u'%s: %s' % (self.kund, self.tjanst)
@@ -121,4 +123,4 @@ def create_user_profile(sender, instance, created, **kwargs):
     if created:
         UserProfile.objects.get_or_create(user=instance)
 
-post_save.connect(create_user_profile, sender=User)
+#post_save.connect(create_user_profile, sender=User)

@@ -52,7 +52,7 @@ class Anstallda(models.Model):
     personnummer = models.CharField(max_length=15, blank=True, null=True)
     adress = models.CharField(max_length=50, blank=True, null=True)
     regdatum = models.DateField()
-    grupp = models.ForeignKey(Grupper)
+    grupp = models.ManyToManyField(Grupper)
 
     def __unicode__(self):
         return self.namn
@@ -119,6 +119,6 @@ class UserProfile(models.Model):
 
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
-        UserProfile.objects.create(user=instance)
+        UserProfile.objects.get_or_create(user=instance)
 
 post_save.connect(create_user_profile, sender=User)

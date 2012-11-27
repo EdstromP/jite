@@ -32,7 +32,6 @@ class VisaAOListView(ListView):
     def get_context_data(self, **kwargs):
        context = super(VisaAOListView, self).get_context_data(**kwargs)
        context['test'] = self.request.user
-       context['test2'] = Arbetsordrar.objects.all('arbetsbeskrivning')[0]
        return context
 
     def get_queryset(self):

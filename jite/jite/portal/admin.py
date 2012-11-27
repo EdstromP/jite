@@ -5,8 +5,27 @@ from django.contrib.auth.models import User
 from jite.portal.models import * 
 
 class AnstalldaAdmin(admin.ModelAdmin):
-    list_display = ('namn', 'grupp')
+    def get_grupp(self):
+        values = ", " . join ([x.__str__() for x in self.grupp.all()])
+        return values
+
+    list_display = ('namn', get_grupp)
     search_fields = ('namn',)
+    get_grupp.short_description = 'Grupp'
+
+class GrupperInline(admin.TabularInline):
+    model = Anstallda.grupp.through
+    verbose_name = 'Anställda'
+    verbose_name_plural = 'Anställda'
+
+class GrupperAdmin(admin.ModelAdmin):
+    def get_anstalld(self):
+        values = ", " . join ([x.__str__() for x in self.anstallda_set.all()])
+        return values
+
+    list_display = ('grupp', get_anstalld)
+    get_anstalld.short_description = 'Anställd'
+    inlines = [GrupperInline,]
 
 class ArbetsordrarAdmin(admin.ModelAdmin):
     #a = Arbetsordrar.objects.get()
@@ -22,7 +41,7 @@ class AvtalInline(admin.TabularInline):
     model = Avtal
 
 class TjansterAdmin(admin.ModelAdmin):
-    inlines = [AvtalInline,]
+#    inlines = [AvtalInline,]
     list_display = ('tjanst', 'placering', 'riktpris',)
 
 class UserProfileInLine(admin.StackedInline):
@@ -37,7 +56,7 @@ class UserAdmin(UserAdmin):
 admin.site.unregister(User)
 admin.site.register(User, UserAdmin)
 
-admin.site.register(Grupper)
+admin.site.register(Grupper, GrupperAdmin)
 admin.site.register(Kunder)
 admin.site.register(Tjanster, TjansterAdmin)
 admin.site.register(Anstallda, AnstalldaAdmin)

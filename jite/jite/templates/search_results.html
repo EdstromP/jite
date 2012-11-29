@@ -1,0 +1,12 @@
+<p>Du sökte på: <strong>{{ query }}</strong></p>
+
+{% if books %}
+    <p>Hittade {{ books|length }} bok{{ books|pluralize }}.</p>
+    <ul>
+        {% for book in books %}
+            <li>{{ book.title }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Hittade ingen bok.</p>
+{% endif %}

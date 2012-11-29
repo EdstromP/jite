@@ -1,0 +1,21 @@
+<html>
+<head>
+    <title>Kontakta oss</title>
+</head>
+<body>
+    <h1>Kontakta oss</h1>
+
+    {% if form.errors %}
+        <p style="color: red;">
+            Var snäll och rätta till nedanstående fel.
+        </p>
+    {% endif %}
+
+    <form action="" method="post">
+        <table>
+            {{ form.as_table }}
+        </table>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

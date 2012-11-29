@@ -1,0 +1,108 @@
+body {
+    background: #ffffff;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+    font-family: Verdana, Helvetica, Arial, sans-serif;
+}
+
+#layout {
+    width: 100%;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+}
+
+#top {
+    width: 100%;
+    height: 330px;
+    margin: 0px 0px 0px 0px;
+    background: #89bb8c url('/media/img/top_boxes.png') no-repeat;
+    border-bottom-style: solid;
+    border-bottom-color: #527e54;
+    border-bottom-width: 10px;
+}
+
+img#logo {
+    position: fixed;
+    z-index: 0;
+}
+
+
+#login {
+    text-align: right;
+    font-size: 10px;
+}
+
+#login a {
+    color: #527e54;
+}
+
+#nav {
+    padding-top: 0px;
+    margin: 0px 0px 0px 230px;
+    list-style: none;
+    width: 800px;
+    font-size:  40px;
+    float: left;
+    position: fixed;
+    z-index: 1;
+    /*border-bottom-style: solid;
+    border-bottom-color: #527e54;
+    border-bottom-width: 5px;*/
+
+}
+
+#nav ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+#nav ul li, #nav li {
+    display: inline;
+    padding: 0px 50px 0px 0px;
+    margin: 0px 0px 0px 0px;
+}
+
+#nav a, #nav a:link, #nav a:visited, #nav a:hover, #nav a:active {
+    color: #db8d04;
+    text-decoration: none;
+    z-index: 10;
+}
+
+#content {
+    width: 800px;
+    margin: 50px 0px 0px 230px;
+}
+
+#content a {
+    color: #db8d04;
+    text-decoration: none;
+}
+
+td.rubrik {
+    font-weight: bold;
+    width: 150px;
+}
+
+#content a {
+}
+
+#sidebar {
+    width: 300px;
+    height: 500px;
+    float: left;
+    margin: 0px 0px 0px 100px;
+    background: #C4D9C4;
+    border-top: #3E6040 solid 5px;
+    border-left: #3E6040 solid 5px;
+    border-right: #3E6040 solid 5px;
+    border-bottom: #3E6040 solid 5px;
+}
+
+#bottom {
+    margin: 50px 0px 0px 200px;
+    border-top-style: solid;
+    border-top-color: #527e54;
+    border-top-width: 5px;
+}
+
+

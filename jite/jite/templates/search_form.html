@@ -1,0 +1,14 @@
+<html>
+<head>
+    <title>Sök</title>
+</head>
+<body>
+    {% if error %}
+        <p style="color: red;">Var god och ange en sökterm.</p>
+    {% endif %}
+    <form action="" method="get">
+        <input type="text" name="q">
+        <input type="submit" value="Sök">
+    </form>
+</body>
+</html>

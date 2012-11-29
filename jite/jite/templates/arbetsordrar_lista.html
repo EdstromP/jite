@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Arbetsordrar</h2>
+
+    <ul>
+        <li>{{ test.id }} {{ test.username }}
+        <li>{{ test2 }} 
+    </ul>
+
+    <p>Välkommen, {{ user.first_name }} {{ user.last_name }}.<br />
+    Nedan är dina aktiva arbetsordrar.</p>
+
+    {% if object_list %}
+    <table>
+        <tr>
+            <td class="rubrik">Arbetsordernr</td>
+            <td class="rubrik">Kund</td>
+            <td class="rubrik" style="width: 500px;">Arbetsbeskrivning</td>
+        </tr>
+        {% for arbetsorder in object_list %}
+        <tr>
+            <td>{{ arbetsorder.id }}</td>
+            <td>{{ arbetsorder.avtal.kund.namn }}</td>
+            <td>{{ arbetsorder.arbetsbeskrivning }}</td>
+        </tr>
+        {% endfor %} 
+    </table>
+    {% else %}
+    <p>Du har inga arbetsordrar!</p>
+    {% endif %}
+{% endblock %}
